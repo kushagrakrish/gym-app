@@ -11,9 +11,10 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
+        "https://exercisedb.p.rapidapi.com/exercises",
         exerciseOptions
       );
+      console.log(bodyPartsData);
 
       setBodyParts(["all", ...bodyPartsData]);
     };
@@ -87,7 +88,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       <Box sx={{ position: "relative", width: "100%", p: "20px" }}>
         <HorizontalScrollbar
           data={bodyParts}
-          bodyParts
+          isBodyPart
           setBodyPart={setBodyPart}
           bodyPart={bodyPart}
         />
